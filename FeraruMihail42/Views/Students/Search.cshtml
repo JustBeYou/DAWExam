@@ -1,0 +1,68 @@
+﻿@model IEnumerable<FeraruMihail42.Models.Student>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@using (Html.BeginForm("Search", "Students", FormMethod.Get, new { @class = "search" }))
+{
+    <div>
+        Domeniu: <input name="domeniu" value="" type="search" />
+        Email: <input name="email" value="" type="search" />
+        <input type="submit" id="submitId" value="Cauta" />
+    </div>
+}
+
+@if (ViewBag.domeniuK != null)
+{
+    <span>
+        Dupa domeniu:
+        @ViewBag.domeniuK
+    </span>
+}
+
+@if (ViewBag.emailK != null)
+{
+    <span>
+        Dupa email:
+        @ViewBag.emailK
+    </span>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Domain.Denumire)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Domain.Denumire)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Show", "AfisareStudent", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+    }
+
+</table>

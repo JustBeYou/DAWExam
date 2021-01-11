@@ -1,0 +1,49 @@
+﻿@model FeraruMihail42.Models.Student
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNastere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataNastere)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Domain.Denumire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Domain.Denumire)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
